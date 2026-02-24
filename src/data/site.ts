@@ -14,9 +14,9 @@ export const siteConfig = {
 
 // ---- STATS ----
 export const stats = [
-  { label: "Project Selesai", value: "150+" },
-  { label: "Klien Puas", value: "120+" },
-  { label: "Rata-rata Rating", value: "4.8/5" },
+  { label: "Project Selesai", value: "50+" },
+  { label: "Klien Puas", value: "40+" },
+  { label: "Rata-rata Rating", value: "4.9/5" },
   { label: "Response Time", value: "< 1 Jam" },
 ];
 
@@ -62,7 +62,7 @@ export const services: Service[] = [
     description: "Bantuan pengerjaan tugas pemrograman, proyek akhir, dan laporan teknis untuk mahasiswa IT. Dikerjakan rapi dengan penjelasan.",
     icon: "GraduationCap",
     features: [
-      "Tugas pemrograman (Java, Python, C++, dll)",
+      "Tugas pemrograman (Java, Kotlin, Python, dll)",
       "Proyek web (HTML/CSS/JS, React, PHP)",
       "Database & SQL",
       "Struktur data & algoritma",
@@ -197,27 +197,27 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     id: "p3",
-    title: "Portfolio Website Fotografer",
+    title: "Landing Page - Klinik",
     category: "Web Dev",
-    description: "Website portfolio minimalis untuk fotografer profesional.",
+    description: "Landing page untuk klinik dengan fitur booking online.",
     tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
     image: "/placeholder.svg",
-    details: "Website portfolio dengan galeri foto grid, lazy loading, animasi scroll smooth, dan form kontak. Optimized untuk performa dan SEO.",
+    details: "Landing page untuk klinik dengan fitur booking online. Responsive dan accessible.",
   },
   {
     id: "p4",
-    title: "Algoritma Sorting Visualizer",
+    title: "Web App Pendaftaran Bantuan Operasional Kesehatan",
     category: "Tugas Kuliah",
-    description: "Visualisasi algoritma sorting untuk tugas Struktur Data.",
-    tech: ["Python", "Tkinter"],
+    description: "Aplikasi web yang digunakan untuk pendaftaran bantuan operasional kesehatan.",
+    tech: ["PHP Native", "Bootstrap", "MySQL"],
     image: "/placeholder.svg",
-    details: "Aplikasi desktop yang memvisualisasikan bubble sort, quick sort, merge sort, dan insertion sort secara real-time dengan animasi bar chart.",
+    details: "Aplikasi web yang digunakan untuk pendaftaran bantuan operasional kesehatan.",
   },
   {
     id: "p5",
     title: "Aplikasi To-Do List",
     category: "Mobile App",
-    description: "Aplikasi task manager sederhana untuk Android & iOS.",
+    description: "Aplikasi task manager sederhana untuk Android",
     tech: ["React Native", "AsyncStorage", "Expo"],
     image: "/placeholder.svg",
     details: "Aplikasi mobile cross-platform dengan fitur CRUD task, kategori, deadline reminder, dan tema gelap/terang.",
