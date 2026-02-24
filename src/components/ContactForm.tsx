@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -23,18 +24,71 @@ type FormData = z.infer<typeof schema>;
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { name: "", service: "", deadline: "", description: "", fileLink: "" },
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Order submitted:", data);
-    toast({
-      title: "Request Terkirim! ✅",
-      description: "Kami akan segera menghubungi Anda via WhatsApp. Terima kasih!",
-    });
-    form.reset();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    try {
+      // 1. Kirim data ke Email via Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "57294c6f-c048-4881-9e51-8ae8d4dbe1b9",
+          subject: `Request Layanan Baru: ${data.service} dari ${data.name}`,
+          from_name: data.name,
+          Nama: data.name,
+          "Jenis Layanan": data.service,
+          Deadline: data.deadline,
+          "Deskripsi Project": data.description,
+          "Link File": data.fileLink || "Tidak dilampirkan",
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        toast({
+          title: "Request Terkirim! ✅",
+          description: "Membuka WhatsApp untuk mengirim pesan...",
+        });
+        
+        // 2. Format pesan untuk WhatsApp
+        const waText = `Halo muhdev, saya ingin memesan layanan.
+        
+*Nama:* ${data.name}
+*Layanan:* ${data.service}
+*Deadline:* ${data.deadline}
+*Deskripsi:* 
+${data.description}
+*Link File:* ${data.fileLink || "-"}
+
+Mohon info lebih lanjut. Terima kasih!`;
+
+        // 3. Arahkan ke WhatsApp
+        const waLink = `https://wa.me/6285849326780?text=${encodeURIComponent(waText)}`;
+        window.open(waLink, '_blank');
+        
+        form.reset();
+      } else {
+        throw new Error(result.message || "Gagal mengirim ke email");
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Gagal Mengirim Request ❌",
+        description: "Terjadi kesalahan. Silakan coba lagi atau langsung klik tombol Chat WhatsApp di samping.",
+      });
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,9 +147,9 @@ const ContactForm = () => {
                       <FormMessage />
                     </FormItem>
                   )} />
-                  <Button type="submit" className="w-full rounded-2xl">
-                    <Send className="mr-2 h-4 w-4" />
-                    Kirim Request
+                  <Button type="submit" className="w-full rounded-2xl" disabled={isSubmitting}>
+                    <Send className={`mr-2 h-4 w-4 ${isSubmitting ? "animate-pulse" : ""}`} />
+                    {isSubmitting ? "Mengirim..." : "Kirim Request"}
                   </Button>
                 </form>
               </Form>

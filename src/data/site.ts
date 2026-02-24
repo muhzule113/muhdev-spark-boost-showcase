@@ -51,7 +51,7 @@ export const services: Service[] = [
       "Fitur real-time kompleks (chat, live streaming) masuk paket Premium",
     ],
     faq: [
-      { q: "Teknologi apa yang digunakan?", a: "React, Next.js, TypeScript, Tailwind CSS, dan database sesuai kebutuhan (PostgreSQL, MongoDB, Firebase)." },
+      { q: "Teknologi apa yang digunakan?", a: "React, Next.js, TypeScript, Tailwind CSS, dan database sesuai kebutuhan (PostgreSQL, XAMPP, Firebase)." },
       { q: "Berapa lama pengerjaan?", a: "Landing page 3–5 hari, web app 1–3 minggu tergantung kompleksitas." },
       { q: "Apakah bisa revisi?", a: "Ya, setiap paket sudah termasuk revisi. Lihat detail di halaman Pricing." },
     ],
@@ -76,17 +76,17 @@ export const services: Service[] = [
     ],
     faq: [
       { q: "Apakah kode original?", a: "Ya, semua kode ditulis dari nol. Kami juga bisa memberikan penjelasan agar kamu paham." },
-      { q: "Bahasa pemrograman apa saja?", a: "Python, Java, C/C++, JavaScript, PHP, SQL, dan lainnya. Tanyakan jika bahasa yang kamu butuhkan tidak terdaftar." },
+      { q: "Bahasa pemrograman apa saja?", a: "HTML 5, CSS 3, JavaScript, PHP, SQL, dan lainnya. Tanyakan jika bahasa yang kamu butuhkan tidak terdaftar." },
       { q: "Bisa minta penjelasan kode?", a: "Tentu. Penjelasan kode bisa diminta sebagai add-on atau sudah termasuk di paket Pro/Premium." },
     ],
   },
   {
     id: "mobile-app",
     title: "Mobile App Development",
-    description: "Pengembangan aplikasi mobile cross-platform menggunakan React Native atau Flutter untuk Android & iOS.",
+    description: "Pengembangan aplikasi mobile cross-platform menggunakan React Native atau Flutter untuk Android.",
     icon: "Smartphone",
     features: [
-      "Aplikasi cross-platform (Android & iOS)",
+      "Aplikasi cross-platform (Android)",
       "UI/UX modern & responsif",
       "Integrasi backend & API",
       "Push notification",
@@ -99,7 +99,6 @@ export const services: Service[] = [
     ],
     faq: [
       { q: "Framework apa yang digunakan?", a: "React Native atau Flutter, tergantung kebutuhan dan preferensi klien." },
-      { q: "Apakah bisa untuk iOS dan Android?", a: "Ya, cross-platform sehingga satu codebase untuk kedua platform." },
     ],
   },
 ];
@@ -130,7 +129,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Pro",
-    price: "Mulai 500rb",
+    price: "Mulai 800rb",
     description: "Untuk project menengah dengan fitur lebih lengkap.",
     features: [
       "Multi-halaman / tugas kompleks",
@@ -145,7 +144,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Premium",
-    price: "Mulai 1.5jt",
+    price: "Mulai 1.8jt",
     description: "Untuk project besar atau deadline ketat.",
     features: [
       "Full project / skripsi",
@@ -161,10 +160,8 @@ export const pricingPlans: PricingPlan[] = [
 ];
 
 export const addOns = [
-  { name: "Express (deadline < 48 jam)", price: "+50% dari harga paket" },
   { name: "Penjelasan kode detail", price: "+50rb–150rb" },
   { name: "Deploy & setup hosting", price: "+100rb–300rb" },
-  { name: "Desain UI custom (Figma)", price: "+200rb–500rb" },
   { name: "Revisi tambahan", price: "+50rb / revisi" },
 ];
 
@@ -185,7 +182,7 @@ export const portfolio: PortfolioItem[] = [
     title: "E-Commerce Fashion Store",
     category: "Web Dev",
     description: "Toko online fashion dengan fitur cart, checkout, dan admin panel.",
-    tech: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    tech: ["Laravel 12", "PostgreSQL", "Tailwind CSS"],
     image: "/placeholder.svg",
     details: "Website e-commerce lengkap dengan katalog produk, keranjang belanja, sistem pembayaran mock, dan dashboard admin untuk manajemen produk. Responsive di semua device.",
   },
@@ -227,12 +224,12 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     id: "p6",
-    title: "Dashboard Analytics",
+    title: "Website Absensi Berbasis Geolocation",
     category: "Web Dev",
-    description: "Dashboard interaktif untuk monitoring data penjualan.",
+    description: "Website absensi berbasis geolocation untuk absensi Siswa.",
     tech: ["React", "Recharts", "Tailwind CSS", "REST API"],
     image: "/placeholder.svg",
-    details: "Dashboard dengan grafik interaktif, filter tanggal, export data, dan real-time updates. Responsive dan accessible.",
+    details: "Website absensi dengan fitur absensi, monitoring, dan laporan. Responsive dan accessible.",
   },
 ];
 
@@ -373,7 +370,6 @@ export const estimatorDeadline = [
   { value: "santai", label: "> 2 minggu" },
   { value: "normal", label: "1–2 minggu" },
   { value: "cepat", label: "3–7 hari" },
-  { value: "express", label: "< 3 hari" },
 ];
 
 export interface EstimatorResult {

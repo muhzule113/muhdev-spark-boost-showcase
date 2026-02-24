@@ -28,7 +28,7 @@ const Footer = () => (
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               WhatsApp
             </a>
-            <span>Email: hello@devassist.id</span>
+            <span>Email: muhzule@gmail.com</span>
           </div>
         </div>
       </div>
