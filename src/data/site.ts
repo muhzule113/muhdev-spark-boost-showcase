@@ -3,13 +3,13 @@
 // ============================================================
 
 export const WHATSAPP_NUMBER = "6281234567890"; // Ganti dengan nomor WA asli
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Halo, saya tertarik dengan jasa Anda. Bisa info lebih lanjut?")}`;
+export const WHATSAPP_URL = `https://wa.me/${6285396501045}?text=${encodeURIComponent("Halo, saya tertarik dengan jasa Anda. Bisa info lebih lanjut?")}`;
 
 export const siteConfig = {
-  name: "DevAssist",
+  name: "muhdev",
   tagline: "Solusi Digital Terpercaya",
   description: "Jasa pembuatan website, aplikasi, dan bantuan tugas kuliah IT. Dikerjakan profesional, tepat waktu, dan transparan.",
-  author: "DevAssist Team",
+  author: "muhdev",
 };
 
 // ---- STATS ----
