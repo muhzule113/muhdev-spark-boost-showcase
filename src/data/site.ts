@@ -148,7 +148,7 @@ export const pricingPlans: PricingPlan[] = [
     description: "Untuk project besar atau deadline ketat.",
     features: [
       "Full project / skripsi",
-      "Revisi unlimited (14 hari)",
+      "Revisi unlimited (Sampai ACC)",
       "Pengerjaan disesuaikan",
       "Source code + dokumentasi lengkap",
       "Penjelasan & bimbingan",
@@ -293,7 +293,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "Apakah ada garansi revisi?",
-    answer: "Ya. Paket Basic 1x revisi, Pro 3x revisi, Premium unlimited revisi selama 14 hari setelah selesai. Revisi di luar paket dikenakan biaya tambahan.",
+    answer: "Ya. Paket Basic 1x revisi, Pro 3x revisi, Premium unlimited revisi sampai ACC. Revisi di luar paket dikenakan biaya tambahan.",
   },
   {
     question: "Metode pembayaran apa yang diterima?",
@@ -448,7 +448,7 @@ export const policies = {
   },
   revision: {
     title: "Kebijakan Revisi",
-    content: `Setiap paket memiliki jatah revisi: Basic (1x), Pro (3x), Premium (unlimited selama 14 hari). Revisi mencakup perubahan yang masih dalam scope brief awal. Perubahan di luar scope (fitur baru, redesign total) akan dikenakan biaya tambahan setelah diskusi. Revisi tambahan di luar jatah: Rp50.000/revisi.`,
+    content: `Setiap paket memiliki jatah revisi: Basic (1x), Pro (3x), Premium (unlimited sampai ACC). Revisi mencakup perubahan yang masih dalam scope brief awal. Perubahan di luar scope (fitur baru, redesign total) akan dikenakan biaya tambahan setelah diskusi. Revisi tambahan di luar jatah: Rp50.000/revisi.`,
   },
   refund: {
     title: "Kebijakan Refund",
