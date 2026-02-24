@@ -2,8 +2,8 @@
 // SITE DATA — Semua konten website ada di sini
 // ============================================================
 
-export const WHATSAPP_NUMBER = "6281234567890"; // Ganti dengan nomor WA asli
-export const WHATSAPP_URL = `https://wa.me/${6281234567890}?text=${encodeURIComponent("Halo, saya tertarik dengan jasa Anda. Bisa info lebih lanjut?")}`;
+export const WHATSAPP_NUMBER = "6285849326780"; // Ganti dengan nomor WA asli
+export const WHATSAPP_URL = `https://wa.me/${6285849326780}?text=${encodeURIComponent("Halo, saya tertarik dengan jasa Anda. Bisa info lebih lanjut?")}`;
 
 export const siteConfig = {
   name: "muhdev",
