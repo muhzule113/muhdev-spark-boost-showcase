@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,600,500,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,82 +7,48 @@
 
 @layer base {
   :root {
-    --background: 220 30% 6%;
-    --foreground: 210 40% 93%;
-
-    --card: 220 30% 9%;
-    --card-foreground: 210 40% 93%;
-
-    --popover: 220 30% 9%;
-    --popover-foreground: 210 40% 93%;
-
-    --primary: 185 70% 50%;
-    --primary-foreground: 220 30% 6%;
-
-    --secondary: 270 40% 55%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 20% 14%;
-    --muted-foreground: 215 15% 55%;
-
-    --accent: 185 70% 50%;
-    --accent-foreground: 220 30% 6%;
-
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 271 91% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 220 20% 16%;
-    --input: 220 20% 16%;
-    --ring: 185 70% 50%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 220 30% 7%;
-    --sidebar-foreground: 210 40% 93%;
-    --sidebar-primary: 185 70% 50%;
-    --sidebar-primary-foreground: 220 30% 6%;
-    --sidebar-accent: 220 20% 14%;
-    --sidebar-accent-foreground: 210 40% 93%;
-    --sidebar-border: 220 20% 16%;
-    --sidebar-ring: 185 70% 50%;
-
-    --glow-primary: 0 0 20px hsl(185 70% 50% / 0.3);
-    --glow-secondary: 0 0 20px hsl(270 40% 55% / 0.2);
-    --gradient-bg: linear-gradient(180deg, hsl(220 30% 7%) 0%, hsl(220 40% 3%) 100%);
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    --radius: 0.25rem;
   }
 
-  .light {
-    --background: 0 0% 98%;
-    --foreground: 220 30% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 10%;
-
-    --primary: 185 70% 40%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 30% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 10% 40%;
-
-    --accent: 185 70% 40%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 185 70% 40%;
-
-    --glow-primary: 0 0 20px hsl(185 70% 40% / 0.2);
-    --glow-secondary: 0 0 20px hsl(270 30% 50% / 0.15);
-    --gradient-bg: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(220 15% 95%) 100%);
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 65%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 271 91% 70%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 65%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 224 76% 48%;
   }
 }
 
@@ -95,21 +62,32 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background: var(--gradient-bg);
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabinet Grotesk', sans-serif;
   }
 }
 
 @layer utilities {
-  .glow-primary {
-    box-shadow: var(--glow-primary);
+  .brutal-shadow {
+    box-shadow: 6px 6px 0px hsl(var(--foreground));
   }
-  .glow-secondary {
-    box-shadow: var(--glow-secondary);
+  .brutal-shadow-sm {
+    box-shadow: 3px 3px 0px hsl(var(--foreground));
   }
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  .brutal-shadow-primary {
+    box-shadow: 6px 6px 0px hsl(var(--primary));
+  }
+  .brutal-shadow-secondary {
+    box-shadow: 6px 6px 0px hsl(var(--secondary));
+  }
+  .brutal-border {
+    @apply border-2 border-foreground;
+  }
+  .brutal-border-primary {
+    @apply border-2 border-primary;
   }
 }

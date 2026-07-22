@@ -11,10 +11,10 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <nav className="sticky top-0 z-40 border-b-2 border-foreground bg-background">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight">
-          <span className="text-gradient">{siteConfig.name}</span>
+        <Link to="/" className="text-xl font-extrabold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <span className="text-foreground">{siteConfig.name}</span>
         </Link>
 
         {/* Desktop */}
@@ -24,10 +24,10 @@ const Navbar = () => {
               key={link.href}
               to={link.href}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                "rounded-none px-4 py-2 text-sm font-bold transition-all hover:bg-primary hover:text-primary-foreground border-2 border-foreground",
                 location.pathname === link.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "bg-foreground text-background"
+                  : "text-foreground bg-background"
               )}
             >
               {link.label}
@@ -39,7 +39,13 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <div className="flex items-center gap-2 md:hidden">
           <DarkModeToggle />
-          <Button variant="ghost" size="icon" onClick={() => setOpen(!open)} aria-label="Menu">
+          <Button
+            variant="default"
+            size="icon"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            className="rounded-none border-2 border-foreground"
+          >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
@@ -47,18 +53,18 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-border/50 bg-background/95 backdrop-blur-xl md:hidden">
-          <div className="container flex flex-col gap-1 py-4">
+        <div className="border-t-2 border-foreground bg-background md:hidden">
+          <div className="container flex flex-col gap-2 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                  "rounded-none border-2 border-foreground px-4 py-3 text-sm font-bold transition-all",
                   location.pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "bg-foreground text-background"
+                    : "text-foreground bg-background hover:bg-muted"
                 )}
               >
                 {link.label}

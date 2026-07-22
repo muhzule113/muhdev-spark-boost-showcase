@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Hero = () => (
-  <section className="relative overflow-hidden py-20 md:py-32">
-    {/* Subtle glow */}
-    <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-primary/5 blur-[120px]" />
-
+  <section className="relative overflow-hidden py-20 md:py-32 border-b-2 border-foreground">
     <div className="container relative">
       <motion.div
         className="mx-auto max-w-3xl text-center"
@@ -16,19 +13,20 @@ const Hero = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
+        {/* Badge */}
         <motion.div
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/50 px-4 py-1.5 text-xs font-medium text-muted-foreground"
+          className="mb-6 inline-flex items-center gap-2 border-2 border-foreground bg-background px-4 py-2 text-xs font-bold"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+          <span className="h-2 w-2 bg-primary" />
           Tersedia untuk project baru
         </motion.div>
 
-        <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+        <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-7xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
           {siteConfig.tagline}{" "}
-          <span className="text-gradient">untuk Project Digital</span>
+          <span className="text-primary">untuk Project Digital</span>
         </h1>
         <p className="mb-8 text-lg text-muted-foreground md:text-xl">
           {siteConfig.description}
@@ -38,7 +36,7 @@ const Hero = () => (
           <Button
             asChild
             size="lg"
-            className="w-full rounded-2xl glow-primary animate-glow-pulse sm:w-auto"
+            className="w-full rounded-none border-2 border-foreground bg-primary text-primary-foreground shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
           >
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-2 h-5 w-5" />
@@ -49,7 +47,7 @@ const Hero = () => (
             asChild
             variant="outline"
             size="lg"
-            className="w-full rounded-2xl sm:w-auto"
+            className="w-full rounded-none border-2 border-foreground bg-background text-foreground shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
           >
             <Link to="/pricing">
               Lihat Paket
@@ -67,9 +65,12 @@ const Hero = () => (
         transition={{ delay: 0.5, duration: 0.6 }}
       >
         {stats.map((s) => (
-          <div key={s.label} className="rounded-2xl border border-border/50 bg-card/50 p-4 text-center backdrop-blur-sm">
-            <div className="text-2xl font-bold text-primary">{s.value}</div>
-            <div className="mt-1 text-xs text-muted-foreground">{s.label}</div>
+          <div
+            key={s.label}
+            className="border-2 border-foreground bg-card p-4 text-center shadow-brutal-sm"
+          >
+            <div className="text-2xl font-extrabold text-primary" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{s.value}</div>
+            <div className="mt-1 text-xs font-bold text-muted-foreground uppercase tracking-wider">{s.label}</div>
           </div>
         ))}
       </motion.div>

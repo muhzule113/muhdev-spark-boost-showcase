@@ -33,7 +33,6 @@ const ContactForm = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // 1. Kirim data ke Email via Web3Forms API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -58,8 +57,7 @@ const ContactForm = () => {
           title: "Request Terkirim! ✅",
           description: "Membuka WhatsApp untuk mengirim pesan...",
         });
-        
-        // 2. Format pesan untuk WhatsApp
+
         const waText = `Halo muhdev, saya ingin memesan layanan.
         
 *Nama:* ${data.name}
@@ -71,10 +69,9 @@ ${data.description}
 
 Mohon info lebih lanjut. Terima kasih!`;
 
-        // 3. Arahkan ke WhatsApp
         const waLink = `https://wa.me/6285849326780?text=${encodeURIComponent(waText)}`;
         window.open(waLink, '_blank');
-        
+
         form.reset();
       } else {
         throw new Error(result.message || "Gagal mengirim ke email");
@@ -95,28 +92,28 @@ Mohon info lebih lanjut. Terima kasih!`;
     <section className="py-20">
       <div className="container">
         <ScrollReveal>
-          <h2 className="mb-2 text-center text-3xl font-bold md:text-4xl">Order Sekarang</h2>
-          <p className="mb-12 text-center text-muted-foreground">Isi form di bawah atau langsung chat via WhatsApp</p>
+          <h2 className="mb-2 text-center text-4xl font-extrabold md:text-5xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Order Sekarang</h2>
+          <p className="mb-12 text-center text-muted-foreground font-medium">Isi form di bawah atau langsung chat via WhatsApp</p>
         </ScrollReveal>
 
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-5">
           <ScrollReveal className="md:col-span-3">
-            <div className="rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm">
+            <div className="border-2 border-foreground bg-card p-8 shadow-brutal-sm">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField control={form.control} name="name" render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Nama</FormLabel>
-                      <FormControl><Input placeholder="Nama Anda" className="rounded-xl" {...field} /></FormControl>
+                      <FormLabel className="font-bold">Nama</FormLabel>
+                      <FormControl><Input placeholder="Nama Anda" className="rounded-none border-2 border-foreground" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="service" render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Jenis Layanan</FormLabel>
+                      <FormLabel className="font-bold">Jenis Layanan</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl><SelectTrigger className="rounded-xl"><SelectValue placeholder="Pilih layanan" /></SelectTrigger></FormControl>
-                        <SelectContent>
+                        <FormControl><SelectTrigger className="rounded-none border-2 border-foreground"><SelectValue placeholder="Pilih layanan" /></SelectTrigger></FormControl>
+                        <SelectContent className="rounded-none border-2 border-foreground">
                           <SelectItem value="web-dev">Web Development</SelectItem>
                           <SelectItem value="tugas-kuliah">Tugas Kuliah</SelectItem>
                           <SelectItem value="mobile-app">Mobile App</SelectItem>
@@ -128,26 +125,30 @@ Mohon info lebih lanjut. Terima kasih!`;
                   )} />
                   <FormField control={form.control} name="deadline" render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Deadline</FormLabel>
-                      <FormControl><Input placeholder="Contoh: 7 hari, 20 Januari 2025" className="rounded-xl" {...field} /></FormControl>
+                      <FormLabel className="font-bold">Deadline</FormLabel>
+                      <FormControl><Input placeholder="Contoh: 7 hari, 20 Januari 2025" className="rounded-none border-2 border-foreground" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="description" render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Deskripsi Project</FormLabel>
-                      <FormControl><Textarea placeholder="Jelaskan kebutuhan project Anda secara detail..." className="min-h-[100px] rounded-xl" {...field} /></FormControl>
+                      <FormLabel className="font-bold">Deskripsi Project</FormLabel>
+                      <FormControl><Textarea placeholder="Jelaskan kebutuhan project Anda secara detail..." className="min-h-[100px] rounded-none border-2 border-foreground" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="fileLink" render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Link File (opsional)</FormLabel>
-                      <FormControl><Input placeholder="https://drive.google.com/..." className="rounded-xl" {...field} /></FormControl>
+                      <FormLabel className="font-bold">Link File (opsional)</FormLabel>
+                      <FormControl><Input placeholder="https://drive.google.com/..." className="rounded-none border-2 border-foreground" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
-                  <Button type="submit" className="w-full rounded-2xl" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full rounded-none border-2 border-foreground bg-foreground text-background font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                    disabled={isSubmitting}
+                  >
                     <Send className={`mr-2 h-4 w-4 ${isSubmitting ? "animate-pulse" : ""}`} />
                     {isSubmitting ? "Mengirim..." : "Kirim Request"}
                   </Button>
@@ -157,15 +158,15 @@ Mohon info lebih lanjut. Terima kasih!`;
           </ScrollReveal>
 
           <ScrollReveal className="md:col-span-2" delay={0.2}>
-            <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-border/50 bg-card/50 p-6 text-center backdrop-blur-sm">
-              <div className="mb-4 rounded-2xl bg-[#25D366]/10 p-4">
-                <MessageCircle className="h-10 w-10 text-[#25D366]" />
+            <div className="flex h-full flex-col items-center justify-center border-2 border-foreground bg-card p-8 text-center shadow-brutal-sm">
+              <div className="mb-6 border-2 border-foreground bg-primary p-5 shadow-brutal-sm">
+                <MessageCircle className="h-10 w-10 text-primary-foreground" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold">Prefer Chat Langsung?</h3>
-              <p className="mb-4 text-sm text-muted-foreground">
+              <h3 className="mb-3 text-xl font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Prefer Chat Langsung?</h3>
+              <p className="mb-6 text-sm text-muted-foreground font-medium">
                 Konsultasi gratis dan response cepat via WhatsApp. Langsung diskusi kebutuhan Anda.
               </p>
-              <Button asChild className="w-full rounded-2xl bg-[#25D366] text-white hover:bg-[#25D366]/90">
+              <Button asChild className="w-full rounded-none border-2 border-foreground bg-foreground text-background font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Chat WhatsApp
                 </a>
