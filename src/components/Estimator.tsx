@@ -18,11 +18,11 @@ const Estimator = () => {
   };
 
   return (
-    <section className="py-20 border-b-2 border-foreground">
+    <section className="py-20">
       <div className="container">
         <ScrollReveal>
           <h2 className="mb-2 text-center text-4xl font-extrabold md:text-5xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Estimasi Harga</h2>
-          <p className="mb-12 text-center text-muted-foreground font-medium">Hitung estimasi biaya dan waktu pengerjaan project Anda</p>
+          <p className="mb-12 text-center font-medium text-foreground/80">Hitung estimasi biaya dan waktu pengerjaan project Anda</p>
         </ScrollReveal>
 
         <ScrollReveal>
@@ -31,7 +31,7 @@ const Estimator = () => {
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Jenis Layanan</label>
                 <Select onValueChange={setService}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground">
+                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih layanan" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none border-2 border-foreground">
@@ -44,7 +44,7 @@ const Estimator = () => {
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Tingkat Kesulitan</label>
                 <Select onValueChange={setDifficulty}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground">
+                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih tingkat kesulitan" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none border-2 border-foreground">
@@ -57,7 +57,7 @@ const Estimator = () => {
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Deadline</label>
                 <Select onValueChange={setDeadline}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground">
+                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih deadline" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none border-2 border-foreground">
@@ -71,7 +71,7 @@ const Estimator = () => {
               <Button
                 onClick={handleCalculate}
                 disabled={!service || !difficulty || !deadline}
-                className="w-full rounded-none border-2 border-foreground bg-foreground text-background font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50"
+                className="w-full rounded-none border-2 border-foreground bg-[var(--yellow)] text-foreground font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50"
               >
                 <Calculator className="mr-2 h-4 w-4" />
                 Hitung Estimasi
@@ -79,18 +79,18 @@ const Estimator = () => {
             </div>
 
             {result && (
-              <div className="mt-6 border-2 border-primary bg-primary/10 p-4">
+              <div className="mt-6 border-2 border-foreground bg-[var(--yellow)]/20 p-4">
                 <div className="mb-3 grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Estimasi Harga</div>
-                    <div className="text-xl font-extrabold text-primary" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.priceRange}</div>
+                    <div className="text-xs font-extrabold text-foreground/80 uppercase tracking-wider">Estimasi Harga</div>
+                    <div className="text-xl font-extrabold" style={{ color: 'var(--pink)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.priceRange}</div>
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Estimasi Waktu</div>
-                    <div className="text-xl font-extrabold text-primary" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.timeRange}</div>
+                    <div className="text-xs font-extrabold text-foreground/80 uppercase tracking-wider">Estimasi Waktu</div>
+                    <div className="text-xl font-extrabold" style={{ color: 'var(--pink)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.timeRange}</div>
                   </div>
                 </div>
-                <p className="text-xs font-medium text-muted-foreground">{result.reason}</p>
+                <p className="text-xs font-medium text-foreground/80">{result.reason}</p>
               </div>
             )}
           </div>

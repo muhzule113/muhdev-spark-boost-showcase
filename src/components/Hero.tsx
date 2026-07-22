@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Hero = () => (
-  <section className="relative overflow-hidden py-20 md:py-32 border-b-2 border-foreground">
+  <section className="relative overflow-hidden py-20 md:py-32">
     <div className="container relative">
       <motion.div
         className="mx-auto max-w-3xl text-center"
@@ -13,22 +13,22 @@ const Hero = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        {/* Badge */}
+        {/* Badge — yellow brutal style */}
         <motion.div
-          className="mb-6 inline-flex items-center gap-2 border-2 border-foreground bg-background px-4 py-2 text-xs font-bold"
+          className="mb-6 inline-flex items-center gap-2 border-2 border-foreground bg-[var(--yellow)] px-4 py-2 text-xs font-extrabold shadow-brutal-sm"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <span className="h-2 w-2 bg-primary" />
+          <span className="h-2 w-2 bg-foreground" />
           Tersedia untuk project baru
         </motion.div>
 
         <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-7xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
           {siteConfig.tagline}{" "}
-          <span className="text-primary">untuk Project Digital</span>
+          <span className="text-[var(--pink)]">untuk Project Digital</span>
         </h1>
-        <p className="mb-8 text-lg text-muted-foreground md:text-xl">
+        <p className="mb-8 text-lg font-medium text-foreground/80 md:text-xl">
           {siteConfig.description}
         </p>
 
@@ -36,7 +36,7 @@ const Hero = () => (
           <Button
             asChild
             size="lg"
-            className="w-full rounded-none border-2 border-foreground bg-primary text-primary-foreground shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
+            className="w-full rounded-none border-2 border-foreground bg-[var(--pink)] text-white shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
           >
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-2 h-5 w-5" />
@@ -47,7 +47,7 @@ const Hero = () => (
             asChild
             variant="outline"
             size="lg"
-            className="w-full rounded-none border-2 border-foreground bg-background text-foreground shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
+            className="w-full rounded-none border-2 border-foreground bg-[var(--cream)] text-foreground shadow-brutal hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] transition-all sm:w-auto"
           >
             <Link to="/pricing">
               Lihat Paket
@@ -64,15 +64,20 @@ const Hero = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
       >
-        {stats.map((s) => (
-          <div
-            key={s.label}
-            className="border-2 border-foreground bg-card p-4 text-center shadow-brutal-sm"
-          >
-            <div className="text-2xl font-extrabold text-primary" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{s.value}</div>
-            <div className="mt-1 text-xs font-bold text-muted-foreground uppercase tracking-wider">{s.label}</div>
-          </div>
-        ))}
+        {stats.map((s, i) => {
+          const bg = ['var(--pink)', 'var(--yellow)', 'var(--teal)', 'var(--purple)'][i % 4];
+          const text = i === 1 ? 'var(--foreground)' : 'white';
+          return (
+            <div
+              key={s.label}
+              className="border-2 border-foreground p-4 text-center shadow-brutal-sm"
+              style={{ backgroundColor: bg, color: text }}
+            >
+              <div className="text-2xl font-extrabold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{s.value}</div>
+              <div className="mt-1 text-xs font-extrabold uppercase tracking-wider">{s.label}</div>
+            </div>
+          );
+        })}
       </motion.div>
     </div>
   </section>

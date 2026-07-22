@@ -93,7 +93,7 @@ Mohon info lebih lanjut. Terima kasih!`;
       <div className="container">
         <ScrollReveal>
           <h2 className="mb-2 text-center text-4xl font-extrabold md:text-5xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Order Sekarang</h2>
-          <p className="mb-12 text-center text-muted-foreground font-medium">Isi form di bawah atau langsung chat via WhatsApp</p>
+          <p className="mb-12 text-center font-medium text-foreground/80">Isi form di bawah atau langsung chat via WhatsApp</p>
         </ScrollReveal>
 
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-5">
@@ -104,7 +104,7 @@ Mohon info lebih lanjut. Terima kasih!`;
                   <FormField control={form.control} name="name" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="font-bold">Nama</FormLabel>
-                      <FormControl><Input placeholder="Nama Anda" className="rounded-none border-2 border-foreground" {...field} /></FormControl>
+                      <FormControl><Input placeholder="Nama Anda" className="rounded-none border-2 border-foreground bg-[var(--cream)]" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
@@ -112,7 +112,7 @@ Mohon info lebih lanjut. Terima kasih!`;
                     <FormItem>
                       <FormLabel className="font-bold">Jenis Layanan</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl><SelectTrigger className="rounded-none border-2 border-foreground"><SelectValue placeholder="Pilih layanan" /></SelectTrigger></FormControl>
+                        <FormControl><SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]"><SelectValue placeholder="Pilih layanan" /></SelectTrigger></FormControl>
                         <SelectContent className="rounded-none border-2 border-foreground">
                           <SelectItem value="web-dev">Web Development</SelectItem>
                           <SelectItem value="tugas-kuliah">Tugas Kuliah</SelectItem>
@@ -126,27 +126,27 @@ Mohon info lebih lanjut. Terima kasih!`;
                   <FormField control={form.control} name="deadline" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="font-bold">Deadline</FormLabel>
-                      <FormControl><Input placeholder="Contoh: 7 hari, 20 Januari 2025" className="rounded-none border-2 border-foreground" {...field} /></FormControl>
+                      <FormControl><Input placeholder="Contoh: 7 hari, 20 Januari 2025" className="rounded-none border-2 border-foreground bg-[var(--cream)]" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="description" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="font-bold">Deskripsi Project</FormLabel>
-                      <FormControl><Textarea placeholder="Jelaskan kebutuhan project Anda secara detail..." className="min-h-[100px] rounded-none border-2 border-foreground" {...field} /></FormControl>
+                      <FormControl><Textarea placeholder="Jelaskan kebutuhan project Anda secara detail..." className="min-h-[100px] rounded-none border-2 border-foreground bg-[var(--cream)]" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="fileLink" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="font-bold">Link File (opsional)</FormLabel>
-                      <FormControl><Input placeholder="https://drive.google.com/..." className="rounded-none border-2 border-foreground" {...field} /></FormControl>
+                      <FormControl><Input placeholder="https://drive.google.com/..." className="rounded-none border-2 border-foreground bg-[var(--cream)]" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <Button
                     type="submit"
-                    className="w-full rounded-none border-2 border-foreground bg-foreground text-background font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                    className="w-full rounded-none border-2 border-foreground bg-[var(--pink)] text-white font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
                     disabled={isSubmitting}
                   >
                     <Send className={`mr-2 h-4 w-4 ${isSubmitting ? "animate-pulse" : ""}`} />
@@ -158,15 +158,15 @@ Mohon info lebih lanjut. Terima kasih!`;
           </ScrollReveal>
 
           <ScrollReveal className="md:col-span-2" delay={0.2}>
-            <div className="flex h-full flex-col items-center justify-center border-2 border-foreground bg-card p-8 text-center shadow-brutal-sm">
-              <div className="mb-6 border-2 border-foreground bg-primary p-5 shadow-brutal-sm">
-                <MessageCircle className="h-10 w-10 text-primary-foreground" />
+            <div className="flex h-full flex-col items-center justify-center border-2 border-foreground p-8 text-center shadow-brutal-sm" style={{ backgroundColor: 'var(--yellow)' }}>
+              <div className="mb-6 border-2 border-foreground p-5 shadow-brutal-sm" style={{ backgroundColor: 'var(--pink)' }}>
+                <MessageCircle className="h-10 w-10 text-white" />
               </div>
-              <h3 className="mb-3 text-xl font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Prefer Chat Langsung?</h3>
-              <p className="mb-6 text-sm text-muted-foreground font-medium">
+              <h3 className="mb-3 text-xl font-extrabold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Prefer Chat Langsung?</h3>
+              <p className="mb-6 text-sm font-medium text-foreground/80">
                 Konsultasi gratis dan response cepat via WhatsApp. Langsung diskusi kebutuhan Anda.
               </p>
-              <Button asChild className="w-full rounded-none border-2 border-foreground bg-foreground text-background font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+              <Button asChild className="w-full rounded-none border-2 border-foreground bg-foreground text-[var(--cream)] font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Chat WhatsApp
                 </a>
