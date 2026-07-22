@@ -13,17 +13,6 @@ const Hero = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        {/* Badge — yellow brutal style */}
-        <motion.div
-          className="mb-6 inline-flex items-center gap-2 rounded-xl brutal-border bg-[var(--yellow)] px-4 py-2 text-xs font-extrabold brutal-shadow-sm"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <span className="h-2 w-2 rounded-full bg-[var(--navy)]" />
-          Tersedia untuk project baru
-        </motion.div>
-
         <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-7xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
           {siteConfig.tagline}{" "}
           <span style={{ color: 'var(--teal)' }}>untuk Project Digital</span>

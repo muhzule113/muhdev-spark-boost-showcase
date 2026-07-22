@@ -136,7 +136,6 @@ export const pricingPlans: PricingPlan[] = [
       "Revisi 3x",
       "Pengerjaan 5–10 hari",
       "Source code + dokumentasi",
-      "Penjelasan kode",
       "Prioritas response",
     ],
     highlighted: true,
@@ -151,7 +150,6 @@ export const pricingPlans: PricingPlan[] = [
       "Revisi unlimited (Sampai ACC)",
       "Pengerjaan disesuaikan",
       "Source code + dokumentasi lengkap",
-      "Penjelasan & bimbingan",
       "Support 30 hari setelah selesai",
       "Prioritas tertinggi",
     ],
@@ -160,7 +158,6 @@ export const pricingPlans: PricingPlan[] = [
 ];
 
 export const addOns = [
-  { name: "Penjelasan kode detail", price: "+50rb–150rb" },
   { name: "Deploy & setup hosting", price: "+100rb–300rb" },
   { name: "Revisi tambahan", price: "+50rb / revisi" },
 ];
