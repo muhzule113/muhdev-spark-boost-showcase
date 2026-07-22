@@ -177,15 +177,7 @@ export interface PortfolioItem {
 }
 
 export const portfolio: PortfolioItem[] = [
-  {
-    id: "p1",
-    title: "Aqua Stock — Sistem Manajemen Logistik",
-    category: "Web Dev",
-    description: "Sistem manajemen logistik aqua dengan dashboard admin, laporan, Midtrans payment, dan Flutter mobile app.",
-    tech: ["Express.js", "EJS", "Firebase", "Midtrans", "Flutter"],
-    image: "/portfolio/aqua-stock.png",
-    details: "Aplikasi manajemen logistik aqua full-stack: web admin (Express + EJS + Firebase Firestore) dengan role-based auth, laporan chart, integrasi Midtrans payment gateway, dan mobile app (Flutter) untuk sales/gudang dengan barcode scanner. Deploy di aqua-japan.web.id.",
-  },
+  
   {
     id: "p2",
     title: "Toko Sinar Manis — Rekomendasi Cerdas",
@@ -206,12 +198,12 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     id: "p4",
-    title: "Budaya Bugis — App Budaya & Mobile",
-    category: "Mobile App",
-    description: "Monorepo: admin panel Laravel + Filament & mobile app Flutter untuk dokumentasi budaya Bugis.",
-    tech: ["Laravel 13", "Filament", "Flutter", "MySQL", "Docker"],
+    title: "Budaya Bugis — Admin Panel",
+    category: "Web Dev",
+    description: "Admin panel Laravel + Filament untuk manage materi, galeri, kuis, dan game budaya Bugis.",
+    tech: ["Laravel 13", "Filament", "MySQL", "Docker"],
     image: "/portfolio/budaya-bugis.png",
-    details: "Platform dokumentasi budaya Bugis: admin panel (Laravel + Filament) untuk manage konten budaya, kategori, dan media, plus mobile app Flutter untuk eksplorasi budaya. Deploy di budayabugis.web.id.",
+    details: "Admin panel budayabugis.web.id/admin untuk mengelola materi budaya, galeri, kuis, dan game yang ditampilkan di mobile app Flutter. Fitur: CRUD konten budaya, kategori, media upload, kuis builder, manajemen user. Build dengan Laravel 13 + Filament v3 + MySQL Docker.",
   },
   {
     id: "p5",
