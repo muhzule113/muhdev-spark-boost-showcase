@@ -7,7 +7,7 @@ const FloatingWhatsApp = () => (
     href={WHATSAPP_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center border-2 border-foreground bg-[var(--pink)] text-white shadow-brutal transition-all hover:shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px]"
+    className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-2xl brutal-border bg-[var(--teal)] text-white brutal-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)]"
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
     transition={{ delay: 1, type: "spring" }}

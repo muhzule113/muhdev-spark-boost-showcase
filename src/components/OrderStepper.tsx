@@ -1,7 +1,7 @@
 import { orderSteps } from "@/data/site";
 import ScrollReveal from "./ScrollReveal";
 
-const stepColors = ['var(--pink)', 'var(--yellow)', 'var(--teal)', 'var(--purple)'];
+const stepColors = ['var(--teal)', 'var(--indigo)', 'var(--yellow)', 'var(--purple)'];
 
 const OrderStepper = () => (
   <section className="py-20">
@@ -16,8 +16,8 @@ const OrderStepper = () => (
           <ScrollReveal key={s.step} delay={i * 0.1}>
             <div className="relative flex flex-col items-center text-center">
               <div
-                className="mb-4 flex h-14 w-14 items-center justify-center border-2 border-foreground text-xl font-extrabold text-foreground shadow-brutal-sm"
-                style={{ backgroundColor: stepColors[i % stepColors.length] }}
+                className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl brutal-border text-xl font-extrabold brutal-shadow-sm"
+                style={{ backgroundColor: stepColors[i % stepColors.length], color: i === 2 ? 'var(--foreground)' : 'white' }}
               >
                 {s.step}
               </div>

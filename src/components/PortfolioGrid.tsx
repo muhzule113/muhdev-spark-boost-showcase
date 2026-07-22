@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
 
-const catColors = ['var(--pink)', 'var(--teal)', 'var(--purple)'];
+const catColors = ['var(--teal)', 'var(--indigo)', 'var(--purple)'];
 
 const PortfolioGrid = () => {
   const [filter, setFilter] = useState<string>("Semua");
@@ -29,10 +29,10 @@ const PortfolioGrid = () => {
                 key={cat}
                 onClick={() => setFilter(cat)}
                 className={cn(
-                  "border-2 border-foreground px-5 py-2 text-sm font-bold transition-all",
+                  "rounded-xl brutal-border px-5 py-2 text-sm font-bold transition-all",
                   filter === cat
-                    ? "bg-foreground text-[var(--cream)]"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-[var(--navy)] text-[var(--cream)]"
+                    : "text-foreground hover:bg-[var(--teal)] hover:text-white"
                 )}
                 style={filter !== cat ? { backgroundColor: 'var(--cream)' } : {}}
               >
@@ -47,15 +47,15 @@ const PortfolioGrid = () => {
             <ScrollReveal key={item.id} delay={i * 0.08}>
               <button
                 onClick={() => setSelected(item)}
-                className="group w-full border-2 border-foreground bg-card p-0 text-left shadow-brutal-sm transition-all hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px]"
+                className="group w-full glass-card rounded-2xl brutal-border brutal-shadow-sm p-0 text-left transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)] overflow-hidden"
               >
-                <div className="h-44 w-full overflow-hidden border-b-2 border-foreground bg-muted">
+                <div className="h-44 w-full overflow-hidden border-b-2 bg-muted" style={{ borderColor: 'var(--navy)' }}>
                   <img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                 </div>
                 <div className="p-5">
                   <Badge
                     variant="default"
-                    className="mb-2 rounded-none border border-foreground text-xs font-extrabold text-white"
+                    className="mb-2 rounded-full brutal-border text-xs font-extrabold text-white"
                     style={{ backgroundColor: catColors[i % catColors.length] }}
                   >
                     {item.category}
@@ -64,7 +64,7 @@ const PortfolioGrid = () => {
                   <p className="mt-1 text-sm font-medium text-foreground/80 line-clamp-2">{item.description}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {item.tech.map((t) => (
-                      <span key={t} className="border border-foreground px-2 py-0.5 text-xs font-extrabold text-foreground" style={{ backgroundColor: 'var(--cream)' }}>{t}</span>
+                      <span key={t} className="rounded-lg border px-2 py-0.5 text-xs font-extrabold text-foreground" style={{ backgroundColor: 'var(--cream)', borderColor: 'var(--navy)' }}>{t}</span>
                     ))}
                   </div>
                 </div>
@@ -75,7 +75,7 @@ const PortfolioGrid = () => {
 
         {/* Modal */}
         <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-          <DialogContent className="rounded-none border-2 border-foreground bg-card shadow-brutal sm:max-w-lg">
+          <DialogContent className="rounded-2xl brutal-border glass-card brutal-shadow sm:max-w-lg">
             {selected && (
               <>
                 <DialogHeader>
@@ -86,7 +86,7 @@ const PortfolioGrid = () => {
                   <p className="text-sm font-medium text-foreground/80">{selected.details}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {selected.tech.map((t) => (
-                      <Badge key={t} variant="default" className="rounded-none border border-foreground text-xs font-extrabold">{t}</Badge>
+                      <Badge key={t} variant="default" className="rounded-lg brutal-border text-xs font-extrabold">{t}</Badge>
                     ))}
                   </div>
                 </div>

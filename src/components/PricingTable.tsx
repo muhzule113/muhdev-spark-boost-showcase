@@ -4,7 +4,7 @@ import { pricingPlans, addOns, WHATSAPP_URL } from "@/data/site";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
 
-const planColors = ['var(--cream)', 'var(--pink)', 'var(--yellow)'];
+const planColors = ['var(--cream)', 'var(--teal)', 'var(--yellow)'];
 
 const PricingTable = () => (
   <section id="harga" className="py-20">
@@ -17,16 +17,16 @@ const PricingTable = () => (
       <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
         {pricingPlans.map((plan, i) => {
           const isHighlighted = plan.highlighted;
-          const bg = isHighlighted ? 'var(--pink)' : planColors[i % planColors.length];
+          const bg = isHighlighted ? 'var(--teal)' : planColors[i % planColors.length];
           const textColor = isHighlighted ? 'white' : 'var(--foreground)';
           return (
             <ScrollReveal key={plan.name} delay={i * 0.1}>
               <div
-                className="relative flex h-full flex-col border-2 border-foreground p-8 transition-all hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px] shadow-brutal"
+                className="relative flex h-full flex-col glass-card rounded-2xl brutal-border p-8 transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)] brutal-shadow"
                 style={{ backgroundColor: bg, color: textColor }}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 border-2 border-foreground bg-[var(--yellow)] px-5 py-1.5 text-xs font-extrabold uppercase text-foreground shadow-brutal-sm">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full brutal-border bg-[var(--yellow)] px-5 py-1.5 text-xs font-extrabold uppercase text-foreground brutal-shadow-sm">
                     Populer
                   </div>
                 )}
@@ -44,10 +44,10 @@ const PricingTable = () => (
                 <Button
                   asChild
                   className={cn(
-                    "w-full rounded-none border-2 border-foreground font-bold transition-all",
+                    "w-full rounded-xl brutal-border font-bold transition-all",
                     isHighlighted
-                      ? "bg-foreground text-[var(--cream)] hover:shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px]"
-                      : "bg-foreground text-[var(--cream)] hover:shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px]"
+                      ? "bg-[var(--navy)] text-[var(--cream)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)]"
+                      : "bg-[var(--navy)] text-[var(--cream)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)]"
                   )}
                 >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -62,13 +62,13 @@ const PricingTable = () => (
 
       {/* Add-ons */}
       <ScrollReveal>
-        <div className="mx-auto mt-12 max-w-2xl border-2 border-foreground bg-[var(--cream)] p-8 shadow-brutal-sm">
+        <div className="mx-auto mt-12 max-w-2xl glass-card rounded-2xl brutal-border brutal-shadow-sm p-8" style={{ backgroundColor: 'var(--cream)' }}>
           <h3 className="mb-4 text-xl font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Add-ons</h3>
           <div className="space-y-3">
             {addOns.map((a) => (
-              <div key={a.name} className="flex items-center justify-between border-b-2 border-dashed border-foreground/30 pb-2 text-sm font-medium">
+              <div key={a.name} className="flex items-center justify-between border-b-2 border-dashed pb-2 text-sm font-medium" style={{ borderColor: 'rgba(30,41,59,0.3)' }}>
                 <span>{a.name}</span>
-                <span className="font-extrabold" style={{ color: 'var(--pink)' }}>{a.price}</span>
+                <span className="font-extrabold" style={{ color: 'var(--teal)' }}>{a.price}</span>
               </div>
             ))}
           </div>

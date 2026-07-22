@@ -11,11 +11,11 @@ const FAQAccordion = () => (
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="mx-auto max-w-2xl border-2 border-foreground bg-card p-8 shadow-brutal-sm">
+        <div className="mx-auto max-w-2xl glass-card rounded-2xl brutal-border brutal-shadow-sm p-8">
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="border-b-2 border-foreground last:border-b-0">
-                <AccordionTrigger className="text-left text-sm font-bold hover:no-underline hover:text-[var(--pink)] py-4">
+              <AccordionItem key={i} value={`faq-${i}`} className="border-b-2 last:border-b-0" style={{ borderColor: 'rgba(30,41,59,0.3)' }}>
+                <AccordionTrigger className="text-left text-sm font-bold hover:no-underline hover:text-[var(--teal)] py-4">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm font-medium text-foreground/80 pb-4">

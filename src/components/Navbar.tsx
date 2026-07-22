@@ -10,7 +10,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-40 border-b-2 border-foreground" style={{ backgroundColor: 'var(--cream)' }}>
+    <nav className="sticky top-0 z-40 border-b-2" style={{ backgroundColor: 'var(--cream)', borderColor: 'var(--navy)' }}>
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="text-xl font-extrabold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
           <span className="text-foreground">{siteConfig.name}</span>
@@ -23,9 +23,9 @@ const Navbar = () => {
               key={link.href}
               to={link.href}
               className={cn(
-                "rounded-none px-4 py-2 text-sm font-bold transition-all hover:bg-[var(--pink)] hover:text-white border-2 border-foreground",
+                "rounded-xl px-4 py-2 text-sm font-bold transition-all brutal-border hover:bg-[var(--teal)] hover:text-white",
                 location.pathname === link.href
-                  ? "bg-foreground text-[var(--cream)]"
+                  ? "bg-[var(--navy)] text-[var(--cream)]"
                   : "text-foreground"
               )}
               style={location.pathname !== link.href ? { backgroundColor: 'var(--cream)' } : {}}
@@ -42,7 +42,7 @@ const Navbar = () => {
             size="icon"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className="rounded-none border-2 border-foreground bg-[var(--yellow)] text-foreground hover:bg-[var(--yellow)]/80"
+            className="rounded-xl brutal-border bg-[var(--yellow)] text-foreground hover:bg-[var(--yellow)]/80"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t-2 border-foreground md:hidden" style={{ backgroundColor: 'var(--cream)' }}>
+        <div className="border-t-2 md:hidden" style={{ backgroundColor: 'var(--cream)', borderColor: 'var(--navy)' }}>
           <div className="container flex flex-col gap-2 py-4">
             {navLinks.map((link) => (
               <Link
@@ -59,9 +59,9 @@ const Navbar = () => {
                 to={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-none border-2 border-foreground px-4 py-3 text-sm font-bold transition-all",
+                  "rounded-xl brutal-border px-4 py-3 text-sm font-bold transition-all",
                   location.pathname === link.href
-                    ? "bg-foreground text-[var(--cream)]"
+                    ? "bg-[var(--navy)] text-[var(--cream)]"
                     : "text-foreground hover:bg-muted"
                 )}
                 style={location.pathname !== link.href ? { backgroundColor: 'var(--cream)' } : {}}

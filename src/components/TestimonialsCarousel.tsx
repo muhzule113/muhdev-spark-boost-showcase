@@ -22,7 +22,7 @@ const TestimonialsCarousel = () => {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="mx-auto max-w-xl border-2 border-foreground bg-card p-10 text-center shadow-brutal">
+          <div className="mx-auto max-w-xl glass-card rounded-2xl brutal-border brutal-shadow p-10 text-center">
             <div className="mb-4 flex justify-center gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className={`h-5 w-5 ${i < t.rating ? "fill-[var(--yellow)] text-[var(--yellow)]" : "text-muted"}`} />
@@ -33,10 +33,10 @@ const TestimonialsCarousel = () => {
             <div className="text-sm font-bold text-foreground/80">{t.role}</div>
 
             <div className="mt-8 flex justify-center gap-3">
-              <Button variant="outline" size="icon" onClick={prev} className="rounded-none border-2 border-foreground text-foreground hover:bg-muted" aria-label="Previous" style={{ backgroundColor: 'var(--cream)' }}>
+              <Button variant="outline" size="icon" onClick={prev} className="rounded-xl brutal-border text-foreground hover:bg-[var(--teal)] hover:text-white" aria-label="Previous" style={{ backgroundColor: 'var(--cream)' }}>
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="icon" onClick={next} className="rounded-none border-2 border-foreground text-foreground hover:bg-muted" aria-label="Next" style={{ backgroundColor: 'var(--cream)' }}>
+              <Button variant="outline" size="icon" onClick={next} className="rounded-xl brutal-border text-foreground hover:bg-[var(--teal)] hover:text-white" aria-label="Next" style={{ backgroundColor: 'var(--cream)' }}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
@@ -47,10 +47,10 @@ const TestimonialsCarousel = () => {
                   key={i}
                   onClick={() => setIdx(i)}
                   className={cn(
-                    "h-3 transition-all border border-foreground",
-                    i === idx ? "w-8 bg-foreground" : "w-3"
+                    "h-3 rounded-full transition-all border",
+                    i === idx ? "w-8 bg-[var(--navy)]" : "w-3"
                   )}
-                  style={i !== idx ? { backgroundColor: 'var(--cream)' } : {}}
+                  style={i !== idx ? { backgroundColor: 'var(--cream)', borderColor: 'var(--navy)' } : { borderColor: 'var(--navy)' }}
                   aria-label={`Testimoni ${i + 1}`}
                 />
               ))}

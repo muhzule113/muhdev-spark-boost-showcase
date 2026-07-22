@@ -26,15 +26,15 @@ const Estimator = () => {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="mx-auto max-w-lg border-2 border-foreground bg-card p-8 shadow-brutal-sm">
+          <div className="mx-auto max-w-lg glass-card rounded-2xl brutal-border brutal-shadow-sm p-8">
             <div className="space-y-5">
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Jenis Layanan</label>
                 <Select onValueChange={setService}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
+                  <SelectTrigger className="rounded-xl brutal-border bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih layanan" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border-2 border-foreground">
+                  <SelectContent className="rounded-xl brutal-border">
                     {estimatorServices.map((s) => (
                       <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
                     ))}
@@ -44,10 +44,10 @@ const Estimator = () => {
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Tingkat Kesulitan</label>
                 <Select onValueChange={setDifficulty}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
+                  <SelectTrigger className="rounded-xl brutal-border bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih tingkat kesulitan" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border-2 border-foreground">
+                  <SelectContent className="rounded-xl brutal-border">
                     {estimatorDifficulty.map((d) => (
                       <SelectItem key={d.value} value={d.value}>{d.label}</SelectItem>
                     ))}
@@ -57,10 +57,10 @@ const Estimator = () => {
               <div>
                 <label className="mb-1.5 block text-sm font-bold">Deadline</label>
                 <Select onValueChange={setDeadline}>
-                  <SelectTrigger className="rounded-none border-2 border-foreground bg-[var(--cream)]">
+                  <SelectTrigger className="rounded-xl brutal-border bg-[var(--cream)]">
                     <SelectValue placeholder="Pilih deadline" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border-2 border-foreground">
+                  <SelectContent className="rounded-xl brutal-border">
                     {estimatorDeadline.map((d) => (
                       <SelectItem key={d.value} value={d.value}>{d.label}</SelectItem>
                     ))}
@@ -71,7 +71,7 @@ const Estimator = () => {
               <Button
                 onClick={handleCalculate}
                 disabled={!service || !difficulty || !deadline}
-                className="w-full rounded-none border-2 border-foreground bg-[var(--yellow)] text-foreground font-bold shadow-brutal-sm hover:shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50"
+                className="w-full rounded-xl brutal-border bg-[var(--yellow)] text-foreground font-bold brutal-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)] transition-all disabled:opacity-50"
               >
                 <Calculator className="mr-2 h-4 w-4" />
                 Hitung Estimasi
@@ -79,15 +79,15 @@ const Estimator = () => {
             </div>
 
             {result && (
-              <div className="mt-6 border-2 border-foreground bg-[var(--yellow)]/20 p-4">
+              <div className="mt-6 rounded-xl brutal-border p-4" style={{ backgroundColor: 'rgba(247,203,70,0.2)' }}>
                 <div className="mb-3 grid grid-cols-2 gap-4">
                   <div>
                     <div className="text-xs font-extrabold text-foreground/80 uppercase tracking-wider">Estimasi Harga</div>
-                    <div className="text-xl font-extrabold" style={{ color: 'var(--pink)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.priceRange}</div>
+                    <div className="text-xl font-extrabold" style={{ color: 'var(--teal)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.priceRange}</div>
                   </div>
                   <div>
                     <div className="text-xs font-extrabold text-foreground/80 uppercase tracking-wider">Estimasi Waktu</div>
-                    <div className="text-xl font-extrabold" style={{ color: 'var(--pink)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.timeRange}</div>
+                    <div className="text-xl font-extrabold" style={{ color: 'var(--teal)', fontFamily: "'Cabinet Grotesk', sans-serif" }}>{result.timeRange}</div>
                   </div>
                 </div>
                 <p className="text-xs font-medium text-foreground/80">{result.reason}</p>

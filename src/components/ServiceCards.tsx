@@ -8,7 +8,7 @@ const iconMap: Record<string, React.ReactNode> = {
   Smartphone: <Smartphone className="h-8 w-8" />,
 };
 
-const colors = ['var(--pink)', 'var(--yellow)', 'var(--teal)'];
+const colors = ['var(--teal)', 'var(--indigo)', 'var(--yellow)'];
 
 const ServiceCards = () => (
   <section id="layanan" className="py-20">
@@ -21,10 +21,10 @@ const ServiceCards = () => (
       <div className="grid gap-8 md:grid-cols-3">
         {services.map((s, i) => (
           <ScrollReveal key={s.id} delay={i * 0.1}>
-            <div className="group h-full border-2 border-foreground bg-card p-8 shadow-brutal transition-all hover:shadow-brutal-sm hover:translate-x-[3px] hover:translate-y-[3px]">
+            <div className="group h-full glass-card rounded-2xl brutal-border brutal-shadow p-8 transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_var(--navy)]">
               <div
-                className="mb-6 inline-flex border-2 border-foreground p-4 shadow-brutal-sm"
-                style={{ backgroundColor: colors[i % colors.length], color: i === 1 ? 'var(--foreground)' : 'white' }}
+                className="mb-6 inline-flex rounded-xl brutal-border p-4 brutal-shadow-sm"
+                style={{ backgroundColor: colors[i % colors.length], color: i === 2 ? 'var(--foreground)' : 'white' }}
               >
                 {iconMap[s.icon]}
               </div>
@@ -33,7 +33,7 @@ const ServiceCards = () => (
               <ul className="space-y-2">
                 {s.features.slice(0, 4).map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm font-medium">
-                    <span className="mt-1 h-2 w-2 shrink-0" style={{ backgroundColor: colors[i % colors.length] }} />
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colors[i % colors.length] }} />
                     {f}
                   </li>
                 ))}
